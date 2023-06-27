@@ -9,6 +9,7 @@ router.get("/", (req, res) => {
 
 router.post("/", (req, res) => {
   const received = req.body;
+  console.log(req.body);
   click.num = received.num;
   click.date = received.date;
   const save = JSON.stringify(click);
