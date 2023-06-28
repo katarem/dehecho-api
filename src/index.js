@@ -13,12 +13,11 @@ app.use(express.json());
 //routes
 app.use(cors());
 app.use(require("./routes/index"));
-
 https
   .createServer(
     {
-      cert: fs.readFileSync("server.cer"),
-      key: fs.readFileSync("server.key"),
+      cert: fs.readFileSync(__dirname + "/server.cer"),
+      key: fs.readFileSync(__dirname + "/server.key"),
     },
     app
   )

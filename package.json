@@ -4,7 +4,8 @@
   "description": "api para dehecho-web",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/index.js"
+    "dev": "nodemon src/index.js",
+    "init": "node src/index.js"
   },
   "author": "katarem",
   "license": "ISC",
