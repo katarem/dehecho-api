@@ -2,6 +2,8 @@ const express = require("express");
 const app = express();
 const morgan = require("morgan");
 const cors = require("cors");
+const fs = require("fs");
+const https = require("https");
 app.set("port", 3000);
 app.set("json spaces", 2);
 
@@ -11,6 +13,15 @@ app.use(express.json());
 //routes
 app.use(cors());
 app.use(require("./routes/index"));
-app.listen(app.get("port"), () => {
-  console.log(`Server on port ${app.get("port")}`);
-});
+
+https
+  .createServer(
+    {
+      cert: fs.readFileSync("server.cer"),
+      key: fs.readFileSync("server.key"),
+    },
+    app
+  )
+  .listen(app.get("port"), () => {
+    console.log(`Server on port ${app.get("port")}`);
+  });
