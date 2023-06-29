@@ -4,7 +4,7 @@ const morgan = require("morgan");
 const cors = require("cors");
 const fs = require("fs");
 const https = require("https");
-const certs_url = "../certs/";
+const certs_url = "./certs/";
 app.set("port", 3000);
 app.set("json spaces", 2);
 
