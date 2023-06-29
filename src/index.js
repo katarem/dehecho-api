@@ -4,6 +4,7 @@ const morgan = require("morgan");
 const cors = require("cors");
 const fs = require("fs");
 const https = require("https");
+const certs_url = "../certs/";
 app.set("port", 3000);
 app.set("json spaces", 2);
 
@@ -16,8 +17,8 @@ app.use(require("./routes/index"));
 https
   .createServer(
     {
-      cert: fs.readFileSync(__dirname + "/server.cer"),
-      key: fs.readFileSync(__dirname + "/server.key"),
+      cert: fs.readFileSync(certs_url + "fullchain.pem"),
+      key: fs.readFileSync(certs_url + "privkey.pem"),
     },
     app
   )
